@@ -13,7 +13,7 @@ public class Course{
     // ----------- METODI ------------
 
     // aggiungere uno studente alla lista
-    public void addStudent(ArrayList<Student> students, Student newStudent)  {
+    public void addStudent(ArrayList<Student> students, Student newStudent) {
         students.add(newStudent);
     }
 

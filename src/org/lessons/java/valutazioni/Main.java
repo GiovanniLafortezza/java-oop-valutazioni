@@ -13,9 +13,15 @@ public class Main {
         for (int i = 0; i < numberStudent; i++ ) {
             int randomAbsence = randomNumbers.nextInt(0,100);
             double randomGrades = randomNumbers.nextDouble(0,5);
-
             Student student = new Student((i+1),randomAbsence,randomGrades);
             students.add(student);
+        }
+
+        try {
+            Student addStudent = new Student(5,12,88);
+            course.addStudent(students,addStudent);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         }
 
         course.printStudents(students);

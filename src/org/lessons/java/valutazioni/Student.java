@@ -10,7 +10,10 @@ public class Student {
 
     // ----------- COSTRUTTORI ----------------
 
-    public Student(int id, int absence, double grades) {
+    public Student(int id, int absence, double grades) throws IllegalArgumentException{
+        validId(id);
+        validAbsence(absence);
+        validGrades(grades);
         this.id = id;
         this.absence = absence;
         this.grades = grades;
@@ -31,6 +34,21 @@ public class Student {
         return grades;
     }
 
+    public void setId(int id) throws IllegalArgumentException{
+        validId(id);
+        this.id = id;
+    }
+
+    public void setAbsence(int absence) throws IllegalArgumentException{
+        validAbsence(absence);
+        this.absence = absence;
+    }
+
+    public void setGrades(double grades) throws IllegalArgumentException{
+        validGrades(grades);
+        this.grades = grades;
+    }
+
     // ----------- METODI ----------------
 
     // metodo che calcola, in base a percentuale assenze e media voti, se lo studente è promosso o bocciato
@@ -49,4 +67,21 @@ public class Student {
     public String toString() {
         return "Student " + id + ", absence = " + absence + ", grades = " + grades;
     }
+
+    // ----------- VALIDATORS ----------------
+    private void validId(int id) throws IllegalArgumentException{
+        if ( id < 0)
+            throw new IllegalArgumentException("ERROR : id not valid");
+    }
+
+    private void validAbsence(int absence) throws IllegalArgumentException{
+        if (absence < 0 || absence > 100)
+            throw new IllegalArgumentException("ERROR : absence not valid");
+    }
+
+    private void validGrades(double grades) throws IllegalArgumentException{
+        if (grades < 0 || grades > 5)
+            throw new IllegalArgumentException("ERROR : grade not valid");
+    }
+
 }
