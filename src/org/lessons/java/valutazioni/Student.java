@@ -65,7 +65,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student " + id + ", absence = " + absence + ", grades = " + grades;
+        return "Student " + id + ", absence = " + absence + ", grades = " + grades + " , is passed? : " + isPromoted();
     }
 
     // ----------- VALIDATORS ----------------

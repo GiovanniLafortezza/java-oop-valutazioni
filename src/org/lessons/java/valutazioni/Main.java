@@ -7,26 +7,26 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
         Random randomNumbers = new Random();
-        int numberStudent = randomNumbers.nextInt(10,20);
+        int numberStudent = randomNumbers.nextInt(10,21);
         Course course = new Course();
-        ArrayList<Student> students = new ArrayList<>();
+        ArrayList<Student> theStudents = new ArrayList<>();
         for (int i = 0; i < numberStudent; i++ ) {
-            int randomAbsence = randomNumbers.nextInt(0,100);
-            double randomGrades = randomNumbers.nextDouble(0,5);
+            int randomAbsence = randomNumbers.nextInt(0,101);
+            double randomGrades = randomNumbers.nextDouble(0.0,5.0);
             Student student = new Student((i+1),randomAbsence,randomGrades);
-            students.add(student);
+            theStudents.add(student);
         }
 
         try {
             Student addStudent = new Student(5,12,88);
-            course.addStudent(students,addStudent);
+            course.addStudent(theStudents,addStudent);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
 
-        course.printStudents(students);
+        course.printStudents(theStudents);
 
-        System.out.println("Studenti promossi : " + course.promotedStudents(students) + "%");
+        System.out.println("Studenti promossi : " + course.promotedStudents(theStudents) + "%");
 
 
 

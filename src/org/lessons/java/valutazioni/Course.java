@@ -37,7 +37,7 @@ public class Course{
                 promotedStudents ++;
             }
         }
-        return (students.size() * ((double) promotedStudents / 100));
+        return ((double)promotedStudents / (double) students.size()) * 100;
 
     }
 }
